@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>edit user</title>
+</head>
+<body>
+<form th:method="post" th:action="@{/users/{id}(id=${user.getId()})}" th:object="${user}">
+    <label for="name">Name</label>
+    <input name="name" type="text" th:field="*{name}" id="name">
+    <div style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+    <br>
+    <label for="surName">Surname</label>
+    <input name="surName" type="text" th:field="*{surName}" id="surName">
+    <div style="color: red" th:if="${#fields.hasErrors('surName')}" th:errors="*{surName}"></div>
+    <br>
+    <label for="age">Age</label>
+    <input name="age" type="text" th:field="*{age}" id="age">
+    <div style="color: red" th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></div>
+    <br>
+    <label for="email">Email</label>
+    <input name="email" type="text" th:field="*{email}" id="email">
+    <div style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+    <input type="submit" value="Обновить">
+</form>
+</body>
+</html>
